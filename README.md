@@ -1,4 +1,4 @@
-# Pokedex Express App (with CRUD)
+# Pokedex Express App with React-Express Templating
 
 We will build the Pokedex web app using Node.js, Express, using React as our templating engine.
 
@@ -13,13 +13,9 @@ The starter code in this repository builds upon the previous exercise's ([pokede
 3.  Look in the starter file called `index.js`, run `nodemon` to start local server on port 3000
 4.  Open `localhost:3000` on your browser and see the home page
 
-#### Note on comments:
-
-The comments in this file are deliberately verbose meant to orientate you to an Express app for the first time. Feel free to remove any or all comments.
-
 ## Deliverables
 
-* Expose a new endpoint that intercepts GET requests to `/pokemon/new`, which responds with a HTML page with a `form` that has these fields: `id`, `num`, `name`, `img`, `height`, and `weight`
+* Expose a new endpoint that intercepts GET requests to `/pokemon/new`, which responds with a view containing a `form` that has these fields: `id`, `num`, `name`, `img`, `height`, and `weight`
 
 * Point the form to submit data to the (`/pokemon`) route using POST method
 
@@ -27,9 +23,7 @@ The comments in this file are deliberately verbose meant to orientate you to an 
 
 * Expose a new endpoint that accepts POST requests to `/pokemon`, which parses the form data and saves the new pokemon data into `pokedex.json`
 
-* Create a `public/` folder, and use `app.use(express.static('public'))` tell Express to look into the `public/` folder for assets that should be publicly available static files
-
-* in the public folder put the HTML form that you will use to make the post request
+* Create a `views` folder and place your `.jsx` views in it. Your app should render views from this folder.
 
 ## Further
 
@@ -38,7 +32,7 @@ The comments in this file are deliberately verbose meant to orientate you to an 
 * Add a "Sort by name" button to the homepage (`/` route) that when clicked, sends a GET request with a query parameter specifying "?sortby=name"
   * Try to implement the button as an element within a `form` tag with `action="/"` and `method="GET"` - so you don't have to write an AJAX request in JavaScript
 
-* Modify your GET `/` logic to handle the new query parameter, returning an HTML page with all the pokemon sorted by their names (whereas previously it was sorted by ID)
+* Modify your GET `/` logic to handle the new query parameter, returning a view with all the pokemon sorted by their names (whereas previously it was sorted by ID)
 
 * Instead of saving `id` and `num` as random values input by the user via the form, implement the logic that guarantees the uniqueness of `id` and `num` of every newly created pokemon
   * eg. if last pokemon in the `pokedex.json` has `"id": 151` and `"num": "151"`, the new pokemon object could have `"id": 152` and `"num": "152"`
