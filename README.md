@@ -1,8 +1,8 @@
 # Pokedex Express App (with CRUD)
 
-We will build a web app using Node.js and Express - a Pokedex app.
+We will build the Pokedex web app using Node.js, Express, using React as our templating engine.
 
-For this exercise, we will continue building our Pokedex web app - setting up our server to accept POST requests to save user-provided data. We will serve a form to the user for them to send data to our server to create a new pokemon.
+For this exercise, we will set up our server to accept POST requests to save user-provided data and serve a form to the user for them to send data to our server to create a new pokemon.
 
 The starter code in this repository builds upon the previous exercise's ([pokedex-express](https://github.com/wdi-sg/pokedex-express)).
 
