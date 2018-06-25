@@ -11,7 +11,8 @@
       "candy_count": "25",
       "egg": "2 km",
       "avg_spawns": "69",
-      "spawn_time": "20:00"
+      "spawn_time": "20:00",
+      "_locals": {}
     },
     {
       "id": 2,

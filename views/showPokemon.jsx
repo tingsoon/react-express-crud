@@ -1,15 +1,20 @@
 var React = require('react');
+var LayoutContainer = require('./layout.jsx');
 
 class Home extends React.Component {
   render() {
 
-  	const pokemonId = this.props.id;
-  	console.log(pokemonId);
+  	let formActionEdit = '/' + this.props.id + '/edit?_method=PUT';
+  	let formActionDelete = '/' + this.props.id + '/delete?_method=DELETE';
+
 
     return (
-     	<html>
-	      	<body>
+    	<LayoutContainer>
+ 			<div className="container">
+ 				<div className="col-sm-pic_container">
 		      	<img src ={this.props.img} />
+		      	</div>
+		      	<div className="col-sm-information">
 		      	<h1>{this.props.name}</h1>
 		      	<ul>
 		      	<li>Id : {this.props.id} </li>
@@ -17,14 +22,18 @@ class Home extends React.Component {
 		      	<li>Height : {this.props.height} </li>
 		      	<li>Weight : {this.props.weight} </li>
 		      	</ul>
-		      	<form method="GET" action="/{this.props.id}/edit?_method=PUT">
-		      	<button type="submit">UPDATE</button>
+		      	</div>
+		      	<div className="col-sm-buttons">
+		      	<form method="GET" action={formActionEdit}>
+		      	<button type="submit">EDIT</button>
 		      	</form>
-		      	<form method="POST" action="/{this.props.id}/delete?_method=DELETE">
+		      	<p></p>
+		      	<form method="POST" action={formActionDelete}>
 		      	<button type="submit">DELETE</button>
 		      	</form>
-	      	</body>
-      	</html>
+		      	</div>
+	      	</div>
+	    </LayoutContainer>
      
     );
   }

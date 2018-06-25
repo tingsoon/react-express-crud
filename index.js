@@ -91,7 +91,7 @@ jsonfile.readFile(FILE, (err, obj) => {
     } else {
 
       let pokemonName = pokemon.name;
-      let pokemonId = pokemon.id;
+      let pokemonId = parseInt(pokemon.id);
       let pokemonNum = pokemon.num;
       let pokemonImg = '<img src="' + pokemon.img + '">';
       let pokemonHeight = pokemon.height;
@@ -110,8 +110,9 @@ jsonfile.readFile(FILE, (err, obj) => {
   app.get('/:id/edit', (request, response) => {
 
     let pokemonIndex = parseInt(request.params.id);
+    // console.log(pokemonIndex);
 
-    response.render('editPokemon');
+    response.render('editPokemon', {id: pokemonIndex});
    
   });
 
@@ -123,6 +124,8 @@ jsonfile.readFile(FILE, (err, obj) => {
     let poke = parseInt(request.params.id) - 1;
 
     let newValue = request.body;
+    console.log(newValue);
+    newValue.id = parseInt(newValue.id);
     newValue.height += ' m';
     newValue.weight += ' kg';
     obj.pokemon[poke] = newValue;
@@ -155,7 +158,7 @@ jsonfile.readFile(FILE, (err, obj) => {
     jsonfile.writeFile(FILE, obj, (err) => {
       console.error(err);
 
-      response.send('Pokemon Added!');  
+      response.send(obj);  
 
     });  
 
@@ -181,7 +184,7 @@ jsonfile.readFile(FILE, (err, obj) => {
 
 
       let pokemonName = pokemon.name;
-      let pokemonId = pokemon.id;
+      let pokemonId = parseInt(pokemon.id);
       let pokemonNum = pokemon.num;
       let pokemonImg = '<img src="' + pokemon.img + '">';
       let pokemonHeight = pokemon.height;
@@ -207,8 +210,6 @@ jsonfile.readFile(FILE, (err, obj) => {
     }
 
     response.render('home', data);
-
-    // response.send("Welcome to the world of pokemon!! Search pokemon by /:id or /pokemon/:pokemonName.");
 
   });
 
